@@ -1,0 +1,33 @@
+DBMS LAB : DDL and DML
+
+To check table: select * from tab
+
+1] Create:
+Create table st_info(prn int, name varchar2(20), m1 number, m2 number, m3 number)
+
+2] to see the attributes in the table or table structure:
+
+desc st_info #st_info is the table whos structure will be displayed
+
+3] Insert data in the table
+
+Insert into st_info values (101, 'xyz', 65, 75, 85);
+
+select * from st_info
+
+4] add column to st_info:
+
+alter table st_info add total number;
+alter table st_info add perc number;
+
+Insert into st_info values (101, 'abc', 5, 7, 8); #error not enough values
+Insert into st_info values (102, 'Ranbir', 5, 7, 8,null ,null); 
+Insert into st_info values (103, 'Salman', 5, 7, 8,null ,null);
+Insert into st_info values (104, 'Kareena', 5, 7, 8,null ,null);
+Insert into st_info values (105, 'Deepika', 5, 7, 8,null ,null);
+Insert into st_info values (106, 'Katrina', 5, 7, 8,null ,null);
+Insert into st_info values (101, 'Shahid', 5, 7, 8,null ,null);
+Insert into st_info values (107, 'Raj', 5, 7, 8,null ,null);
+Insert into st_info values (108, 'Kriti', 5, 7, 8,null ,null);
+Insert into st_info values (109, 'Priyanka', 5, 7, 8,null ,null);
+Insert into st_info values (100, 'Tara', 5, 7, 8,null ,null);
