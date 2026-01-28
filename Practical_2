@@ -82,14 +82,13 @@ time_slot_id VARCHAR(4),
 FOREIGN KEY (course_id) REFERENCES COURSE(course_id)
 );
 
-INSERT INTO SECTION (section_id, course_id, sec_id, semester, year, building, room_number, time_slot_id) VALUES (1,'CS-101','Fall',1,2023,'Talyor','3128','A');
-INSERT INTO SECTION (section_id, course_id, sec_id, semester, year, building, room_number, time_slot_id) VALUES (2,'BIO-102','Fall',1,2023,'Darwin','2110','C');
-INSERT INTO SECTION (section_id, course_id, sec_id, semester, year, building, room_number, time_slot_id) VALUES (3,'PHY-103','Fall',1,2023,'Joe','2113','D');
-INSERT INTO SECTION (section_id, course_id, sec_id, semester, year, building, room_number, time_slot_id) VALUES (4,'MA-104',1,'Spring',2023,'Watson','2230','B');
-INSERT INTO SECTION (section_id, course_id, sec_id, semester, year, building, room_number, time_slot_id) VALUES (5,'CH-105',1,'Spring',2023,'Curie','2102','D');
+INSERT INTO SECTION (section_id, course_id, sec_id, semester, year, building, room_number, time_slot_id) VALUES (1,'CS-101',1,'Fall',2023,'Talyor','3128','A');
+INSERT INTO SECTION (section_id, course_id, sec_id, semester, year, building, room_number, time_slot_id) VALUES (2,'BIO-102',2,'Fall',2023,'Darwin','2110','C');
+INSERT INTO SECTION (section_id, course_id, sec_id, semester, year, building, room_number, timeslot) VALUES (3,'PHY-103',3,'Fall',2023,'Joe','2113','D');
+INSERT INTO SECTION (section_id, course_id, sec_id, semester, year, building, room_number, time_slot_id) VALUES (4,'MA-102',1,'Spring',2023,'Watson','2230','B');
+INSERT INTO SECTION (section_id, course_id, sec_id, semester, year, building, room_number, time_slot_id) VALUES (5,'CH-104',1,'Spring',2023,'Curie','2102','D');
 INSERT INTO SECTION (section_id, course_id, sec_id, semester, year, building, room_number, time_slot_id) VALUES (6,'EC-106',1,'Spring',2023,'Tesla','3105','F');
 INSERT INTO SECTION (section_id, course_id, sec_id, semester, year, building, room_number, time_slot_id) VALUES (7,'ME-107',1,'Fall',2023,'Ford','4101','G');
-
 
 CREATE TABLE TEACHES(
 instructor_id INT,
