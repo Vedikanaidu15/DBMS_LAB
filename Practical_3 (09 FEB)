@@ -1,0 +1,48 @@
+i] add hiredate in date format:
+alter table instructor add HireDate date;
+insert 4-5 rows in table
+INSERT INTO INSTRUCTOR(instructor_id, name, dept_id, is_hod, salary, HireDate) VALUES (12,'John Doe',1,'Y',8000,date '30-06-18');
+INSERT INTO INSTRUCTOR(instructor_id, name, dept_id, is_hod, salary, HireDate) VALUES (11,'Jane Smith',2,'N',75000,date '01-03-21');
+INSERT INTO INSTRUCTOR(instructor_id, name, dept_id, is_hod, salary, HireDate) VALUES (9,'Talyor Swift',3,'N',85000,date '01-11-23');
+INSERT INTO INSTRUCTOR(instructor_id, name, dept_id, is_hod, salary, HireDate) VALUES (13,'Marie Curie',4,'Y',82000, date '11-07-23');
+
+
+to retrieve: select * from instructor hiredate = date '2018-06-30'; 
+
+j] select * from instructor where hiredate <= add_months(sysdate, -60); (less than before 5 years)
+select * from instructor where hiredate >= add_months(sysdate, -60); (greater than after 5 years)
+select * from instructor where hiredate > add_months(sysdate, -60);
+
+Display names of instructor working for the past 5 years 
+select * from instructor where hiredate >= add_months(sysdate, -60);
+
+select * from instructor where hiredate < date '2025-06-30' and hiredate > date '2019-12-31';
+
+k] Display name of
+select * from instructor where add_months(hiredate, 60) < date '2026-01-01';
+select * from instructor where hiredate = add_months(hiredate, 60) and hiredate < date '2026-01-01';
+
+l] Display those instructors whose salry contains atleast 4 digits
+select name, salary from instructor where length(salary) >=4;
+
+m] select name, salary, 
+	case 
+		when salary < 75000 then 'less salary' 
+		when salary = 75000 then 'exact salary' 
+		  else 'more salary'
+		end as salary_catagory
+from instructor;
+
+n] Display names of all instructors concatenated with their department names.
+ select name, dept_id from department;
+select i.name || ' - ' || d.name from instructor i join department d on i.dept_id=d.dept_id;
+
+o] Retrieve district number of instructors from each department
+select count(distinct instructor_id) as inst_each_dept, d.name from instructor i join department d on i.dept_id=d.dept_id group by d.name;
+select name, dept_id from instructor; 
+derived from below command
+select * from instructor i join o department d on i.depd.dept;
+
+p] Find the names of all instructors whose salary is greater than at least one instructor in the Biology department.
+select name, dept_id, salary from instructor;
+select i.name, i.salary from instructor i join department d on i.dept_id=d.dept_id where i.salary > any (select salary from instructor where dept_id=5);
