@@ -1,0 +1,21 @@
+Practical 3-
+
+1] find average of salary:
+select avg(i.salary) as avg_salary from instructor I join department d on i.dept_id=d.dept_id where d.name='Computer Science';
+
+2] average salary in each department:
+select d.name as dept_name, avg(i.salary) as avg_salary from department D join Instructor I on d.dept_id=i.dept_id group by d.name;
+
+3] total salary of all teachers earning more than 30k:
+select sum(salary) as total from instructor where salary > 30000;
+
+4,5] find name of all department whose building name include the substring "sci":
+select * from department where lower(name) like '%sci%';
+select * from department where lower(name) like '%mat%';
+
+6] display length of name of all the students:
+select length(name) as total_lenght from instructor;
+select sum(length(name))  as total_lenght from instructorgroup by name;
+
+7] retrieve total number of instructor
+select sum(length(name)) as total length from instructor;
