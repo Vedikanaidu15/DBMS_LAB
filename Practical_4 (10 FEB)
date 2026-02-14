@@ -1,0 +1,23 @@
+Practical 4- (continued)
+
+2] Display departments having dallas, new York and Chicago location:
+select dept_name from departments where location = 'dallas' or location = 'new york' or location = 'Chicago;
+OR
+select dept_name from departments where lower(location) in ('dallas','new york','chicago');
+
+3] Display the names of employees who are working as clerk, salesman or analyst and drawing a salary of more than 3000
+select first_name, job, salary from emp;
+select first_name, job, salary from emp where salary >= 3000 and lower(job) in ('clerk','salesman','analyst');
+
+4] Display the names of employees who are not working as manager.
+select first_name, last_name from emp where lower(job) != 'manager';
+
+5] Display the name of emp who earns highest salary
+select max(salary) as max_sal from emp;
+select first_name, salary from emp where salary = (select max (salary) from emp);
+
+6] Display the employee number and name
+select first_name, salary, job from emp;
+select emp_no, first_name, salary job from emp where salary=(select max (salary) from emp where lower(job)='clerk');
+
+7] Display the name of clerk who earn salary more than that of bob of that of sal lesser than 
