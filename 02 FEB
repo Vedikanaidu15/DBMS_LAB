@@ -1,0 +1,30 @@
+10] desc st_info;
+select max(prn) from st_info;
+to create sequence:
+create sequence st_sq start with 1011 incremented by 1;
+create sequence emp_sq start with 1 increment by 1;
+create table emp (emp_id int primary key, name varchar2(20));
+insert into emp values(emp_sq.nextval, 'x1');
+insert into emp values(emp_sq.nextval, 'x2');
+insert into emp values(emp_sq.nextval, 'x3');
+insert into emp values(emp_sq.nextval, 'x4');
+insert into emp values(emp_sq.nextval, 'x5');
+insert into emp values(emp_sq.nextval, 'x6');
+insert into emp values(emp_sq.nextval, 'x7');
+insert into emp values(emp_sq.nextval, 'x8');
+insert into emp values(emp_sq.nextval, 'x9');
+to add field to emp:
+alter table emp add mobile number;
+
+insert into emp(emp_id, name, mobile) values (emp_sq.nextval, 'abc', 1234567890);
+
+to delete the data from table:
+truncat table emp;
+select * from emp;
+drop sequence emp_sq;
+create sequence emp_sq start with 1 incremented by 1;
+insert into emp values(emp_sq.nextval, 'x1', 1756493275);
+insert into emp values(emp_sq.nextval, 'x2', 8745201283);
+insert into emp values(emp_sq.nextval, 'x3', 1297354735);
+insert into emp values(emp_sq.nextval, 'x4', 7461974657);
+insert into emp values(emp_sq.nextval, 'x5', 8651207370);
