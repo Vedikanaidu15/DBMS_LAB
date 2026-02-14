@@ -31,3 +31,17 @@ select length(name) as total_lenght from instructor;
 select sum(length(name))  as total_lenght from instructorgroup by name;
 
 7] retrieve total number of instructor
+
+Add a new column PINCODE with not null constraints to the above existing table:
+alter table emp add pincode into null;
+truncate table emp;
+drop sequence emp_sq;
+PRACTICAL 2 END
+
+JOINTS- used to joint different types of table to compare the values of the tables
+
+select instructor_id, name from instructor WHERE dept_id = (SELECT dept_id FROM DEPARTMENT WHERE name = 'Computer Science');
+select i.instructor_id, i.name, i.salary, d.name from instructor I join Department d on i.dept_id=d.dept_id where d.name='Computer Science'
+insert into instructor values(8,'xyv',1,'N',20000);
+select i.instructor_id, i.name, i.salary, d.name from instructor I join Department d on i.dept_id=d.dept_id where d.name='Computer Science';
+
