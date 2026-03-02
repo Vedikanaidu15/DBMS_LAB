@@ -1,0 +1,89 @@
+PRACTICAL 6: Procedures
+create user d2 identified by sit;
+grant connect, resource to d2;
+create procedure user y2024-28 user y25-29
+while i<= 280
+
+Create procedure hello world
+as/is (orcale) & only AS in mySQL
+-Begin
+DBMS_OUTPUT.PUT_LINE('Hello World')
+-End
+/Create procedure hello world
+
+CREATION: Create procedure helloworld
+as
+Begin
+DBMS_OUTPUT.PUT_LINE('Hello World');
+End;
+/
+set ServerOutput ON;
+Exec helloworld;
+
+REPLACE: Create or replace procedure helloworld
+as
+Begin
+DBMS_OUTPUT.PUT_LINE('Hello World Welcome to SIT');
+End;
+/
+set ServerOutput ON;
+Exec helloworld;
+
+create or replace procedure addition
+AS
+a number;
+b number;
+begin
+a:=5;
+b:=10;
+DBMS_OUTPUT.PUT_LINE('Result: ' ||(a + b));
+end;
+/
+exec addition
+
+create or replace procedure addition2
+(
+a in number,
+b in number)
+AS
+begin
+DBMS_OUTPUT.PUT_LINE('Result: ' ||(a + b));
+end;
+/
+exec addition2(5,10);
+
+create or replace procedure addition2
+(
+a in number,
+b in number, 
+c out number)
+AS
+begin
+c:= a+b;
+DBMS_OUTPUT.PUT_LINE('Result: ' ||c);
+end;
+/
+variable c1 number
+exec addition2(5,10, c1);
+
+2] Swapping without using third variable;
+create or replace procedure SwapNUmbers
+(
+a in out number,
+b in out number)
+AS
+begin
+a := a + b;
+b := a - b;
+a := a - b;
+end;
+/
+
+Declare
+a number := 10;
+b number := 20;
+begin
+SwapNumbers(a,b);
+DBMS_OUTPUT.PUT_LINE('After swap: a= '||a|| ', b = '||b);
+end;
+/
