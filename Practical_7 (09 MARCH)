@@ -1,0 +1,71 @@
+PRACTICAL 7:
+
+While Loop:
+1] identification of variable
+2] condition statement
+3] increment and decrement
+
+
+1] Sum of first 10 numbers using a while loop
+CREATE OR REPLACE PROCEDURE wl__1to10
+AS
+    i NUMBER := 1;
+    s NUMBER := 0;
+BEGIN
+    WHILE i <= 10 LOOP
+        s := s + i;
+        i := i + 1;
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('Result of sum : ' || s);
+END;
+/
+Procedure created.
+
+SQL> set serveroutput on
+SQL> execute wl__1to10
+Result of sum : 55
+
+PL/SQL procedure successfully completed.
+
+2]FIND SUM OF n NUMBERS USING WHILE LOOP
+create or replace procedure nsum (
+n in number)
+AS
+s number := 0;
+i number := 1;
+begin
+while i<=n loop
+s := s + i;
+i := i + 1;
+end loop;
+DBMS_OUTPUT.PUT_LINE('Result of sum of n numbers: '||s);
+end;
+/
+Procedure created.
+
+SQL> set serveroutput on
+SQL> execute nsum(10)
+Result of sum of n numbers: 55
+
+PL/SQL procedure successfully completed.
+
+3] Sum of first 10 numbers using for loop
+CREATE OR REPLACE PROCEDURE wl__1to10
+AS
+    s NUMBER := 0;
+BEGIN
+    FOR i IN 1..10 LOOP
+        s := s + i;
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('Result of sum : ' || s);
+END;
+/
+Procedure created.
+
+SQL> set serveroutput on
+SQL> execute wl__1to10
+Result of sum : 55
+
+PL/SQL procedure successfully completed.
