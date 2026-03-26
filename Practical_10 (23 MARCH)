@@ -1,0 +1,31 @@
+PRACTICAL 10-
+
+EXCEPTION HANDLING
+CREATE PROCEDURE EXCEP(VAR IN DATATYPE)
+AS
+VAR1 EXCEPION
+VAR2 EXCEPTION // THESE ARE USER DEFINED
+BEGIN
+CODE
+WHEN VAR1 EXCEPTION
+TRUE STATE
+WHEN VAR2 EXCEPTION
+TRUE STATE
+END EXCP
+END;
+
+
+PROGRAM:
+create procedure pr1(id in number)
+as
+name Emp.Empname % type;
+V_Salary Emp.Salary % type;
+begin
+	select Empname, Salary into name, V_Salary from Emp where Emp_id=id;
+	DBMS_OUTPUT.PUT_LINE('Name: ' || name);
+	DBMS_OUTPUT.PUT_LINE('Salary: ' || V_Salary);
+when Nofound exception
+	DBMS_OUTPUT.PUT_LINE('id not found');
+end pr1
+end
+/
