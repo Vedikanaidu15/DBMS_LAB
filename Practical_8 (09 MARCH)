@@ -1,0 +1,26 @@
+PRACTICAL 8:
+
+1]FIND THE GREATEST NUMBER 
+CREATE OR REPLACE PROCEDURE greatest_num(
+    a IN NUMBER,
+    b IN NUMBER,
+    c IN NUMBER
+)
+AS
+BEGIN
+    IF a > b AND a > c THEN
+        DBMS_OUTPUT.PUT_LINE('a is greatest');
+    ELSIF b > a AND b > c THEN
+        DBMS_OUTPUT.PUT_LINE('b is greatest');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('c is greatest');
+    END IF;
+END;
+/
+Procedure created.
+
+SQL> set serveroutput on
+SQL> execute greatest_num(10,25,15)
+b is greatest
+
+PL/SQL procedure successfully completed.
