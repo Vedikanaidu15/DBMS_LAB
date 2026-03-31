@@ -1,0 +1,91 @@
+PRACTICAL 12-
+
+EXCEPTION: are of two types
+1] System defined
+2] User defined
+
+1] NO_FOUND_DATA
+CREATE OR REPLACE PROCEDURE find_empid(n IN NUMBER)
+AS
+    vname emp.first_name%TYPE;
+    vsalary emp.salary%TYPE;
+BEGIN
+    SELECT first_name, salary
+    INTO vname, vsalary
+    FROM emp
+    WHERE emp_no = n;
+
+    DBMS_OUTPUT.PUT_LINE('Name = ' || vname);
+    DBMS_OUTPUT.PUT_LINE('Salary = ' || vsalary);
+
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('Emp id = ' || n || ' not found');
+END;
+/
+
+Procedure created.
+
+SQL> set serveroutput on;
+SQL> EXEC find_empid(7839);
+Name = John
+Salary = 5000
+
+PL/SQL procedure successfully completed.
+
+SQL> EXEC find_empid(9999);
+Emp id = 9999 not found
+
+PL/SQL procedure successfully completed.
+
+2] MAX_ROW_FOUND
+CREATE OR REPLACE PROCEDURE find_empid(n IN NUMBER)
+AS
+    vname emp.first_name%TYPE;
+    vsalary emp.salary%TYPE;
+BEGIN
+    SELECT first_name, salary
+    INTO vname, vsalary
+    FROM emp
+    WHERE deptno = n;
+
+    DBMS_OUTPUT.PUT_LINE('Name = ' || vname);
+    DBMS_OUTPUT.PUT_LINE('Salary = ' || vsalary);
+
+EXCEPTION
+    WHEN TOO_MANY_ROWS THEN
+        DBMS_OUTPUT.PUT_LINE('Max rows found in Dept = ' || n);
+END;
+/
+
+Procedure created.
+
+SQL> set serveroutput on;
+SQL> EXEC find_empid(10);
+Many employees found in Dept = 10
+
+PL/SQL procedure successfully completed.
+
+3]user created exception:
+create or replace procedure uexcep(m1 in number, m2 in number, m3 in number)
+as
+invalid_marks exception;
+begin
+if m1<0 or m1>100 or m2<0 or m2>100 or m3<0 or m3>100
+then raise invalid_marks;
+elsif m1>50 and m2>=50 and m3>=50 then
+dbms_output.put_line('Result: PASS');
+else
+dbms_output.put_line('Result: FAIL');
+end if;
+exception
+when invalid_marks then
+dbms_output.put_line('Enter valid marks in range 0-100');
+end;
+/
+
+Procedure created.
+
+SQL> set serveroutput on;
+SQL> EXEC uexcep(60, 70, 50);
+Result: PASS
