@@ -1,0 +1,61 @@
+Trigger are of two type:
+1] System Defined
+2] User Defined
+
+types of trigger:
+1] Statement
+
+Trigger: Syntax of Trigger
+
+create or replace Trigger Tri_name
+	Before || After for each
+	Insert || update || Delete on Table_name
+Begin
+	code
+End;
+/
+
+Ex: before insertion trigger
+
+Create or Replace Trigger Tri_
+	Before Insert on St_info
+Begin
+	condition for 4 subjects (0-100)
+	if (m1<0 or m1>100) then
+End;
+/
+
+1]
+Create or replace trigger tri_st
+before update on St_info
+begin
+DBMS_OUTPUT.PUT_LINE('this is statement level trigger fired');
+End;
+/
+
+Trigger created.
+
+SQL> set serveroutput on
+SQL> update st_info set total = sub1+sub2+sub3+sub4 where sub1 > 80;
+this is statement level trigger fired
+
+2 rows updated.
+
+Functions:
+
+create or replace function funcname(a in int, b in int)
+return number
+as
+c number;
+begin
+c := a + b;
+return c;
+end;
+/
+Function created.
+
+SQL> select funcname(5,23) from dual;
+
+FUNCNAME(5,23)
+--------------
+            28
